@@ -24,7 +24,7 @@
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
+        <el-button type="primary" @click="onSubmit">Save</el-button>
       </el-form-item>
     </el-form>
     <!-- <MarkdownEditor v-model="content"/> -->
@@ -33,7 +33,7 @@
 
 <script>
 import MarkdownEditor from '@/components/Markdown'
-import { apiCreate } from '@/api/article.js'
+import { apiCreate, apiGetSingle, apiUpdate } from '@/api/article.js'
 export default {
   data() {
     return {
@@ -55,10 +55,18 @@ export default {
       }
     }
   },
+  created(){
+    if(this.$route.query.id){
+      this.getData();
+    }
+  },
   methods: {
     onSubmit() {
-      console.log(this.form)
-      this.createHandle()
+      if(this.$route.query.id){
+        this.updateHandle()
+      }else{
+        this.createHandle()
+      }
     },
     createHandle(){
       apiCreate(this.form).then((res)=>{
@@ -66,11 +74,34 @@ export default {
           message: '操作成功',
           type: 'success'
         })
+        this.$router.push({
+          path:'/list/index'
+        })
       }).catch((e)=>{
         this.$message({
           message: e.message,
           type: 'error'
         })
+      })
+    },
+    getData(){
+      apiGetSingle({
+        id:this.$route.query.id
+      }).then((res)=>{
+        console.log(res)
+        this.form = res.data;
+      })
+    },
+    updateHandle(){
+      apiUpdate({
+        ...this.form,
+        id:this.$route.query.id
+      }).then((res)=> {
+        this.$message({
+          message: '操作成功',
+          type: 'success'
+        })
+        this.$router.go(-1);
       })
     }
   },
