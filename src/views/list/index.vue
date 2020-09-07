@@ -93,10 +93,9 @@ export default {
         })
     },
     previewHandle(id){
-      window.open(`http://localhost:8082/detail?id=${id}`)
+      window.open(`http://123.57.252.92/detail?id=${id}`)
     },
     timeTrans(_time){
-      console.log(dayjs(_time))
       return dayjs(_time).format('YYYY-MM-DD hh:mm:ss:ms')
     }
   },
