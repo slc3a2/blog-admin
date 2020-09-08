@@ -88,14 +88,15 @@ export default {
       apiGetSingle({
         id:this.$route.query.id
       }).then((res)=>{
-        console.log(res)
         this.form = res.data;
       })
     },
     updateHandle(){
       apiUpdate({
-        ...this.form,
-        id:this.$route.query.id
+        title: this.form.title,
+        type: this.form.type,
+        content: this.form.content,
+        id: this.$route.query.id
       }).then((res)=> {
         this.$message({
           message: '操作成功',
