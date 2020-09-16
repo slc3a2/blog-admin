@@ -15,7 +15,7 @@ export function apiGetList() {
 }
 export function apiGetSingle(params) {
   return request({
-    url: '/article/findOne',
+    url: '/article/findOneById',
     method: 'get',
     params
   })
