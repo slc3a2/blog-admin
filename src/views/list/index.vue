@@ -93,7 +93,7 @@ export default {
         })
     },
     previewHandle(id){
-      window.open(`http://123.57.252.92/detail?id=${id}`)
+      window.open(`http://8.210.115.7/detail?id=${id}`)
     },
     timeTrans(_time){
       return dayjs(_time).format('YYYY-MM-DD hh:mm:ss:ms')
