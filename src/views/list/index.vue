@@ -32,7 +32,6 @@
           width='300'
           label="Operation">
           <template slot-scope="scope">
-            <el-button type="primary" @click='previewHandle(scope.row.id)'>Preview</el-button><br/>
             <el-button type="primary" @click='editHandle(scope.row.id)'>Edit</el-button><br/>
             <el-button type="danger" @click='deleHandle(scope.row.id)'>Delete</el-button><br/>
           </template>
