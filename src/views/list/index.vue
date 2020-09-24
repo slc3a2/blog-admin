@@ -8,7 +8,12 @@
         <el-table-column
           prop="title"
           label="Title"
-          width="180">
+          width="300">
+        </el-table-column>
+        <el-table-column
+          prop="title_en"
+          label="Title_en"
+          width="300">
         </el-table-column>
         <el-table-column
           prop="type"
@@ -21,15 +26,17 @@
         </el-table-column>
         <el-table-column
           prop="created_at"
+          width='180'
           label="created time">
         </el-table-column>
         <el-table-column
           prop="updated_at"
+          width='180'
           label="updated time">
         </el-table-column>
         <el-table-column
           prop="Operation"
-          width='300'
+          width='130'
           label="Operation">
           <template slot-scope="scope">
             <el-button type="primary" @click='editHandle(scope.row.id)'>Edit</el-button><br/>

@@ -4,6 +4,9 @@
       <el-form-item label="Title">
         <el-input v-model="form.title" />
       </el-form-item>
+      <el-form-item label="Title_en">
+        <el-input v-model="form.title_en" />
+      </el-form-item>
       <el-form-item label="Content">
         <el-input type="textarea" :rows='8' v-model="form.content" />
       </el-form-item>
@@ -50,6 +53,7 @@ export default {
         }],
       form: {
         title: '',
+        title_en: '',
         content: '',
         type: []
       }
@@ -94,6 +98,7 @@ export default {
     updateHandle(){
       apiUpdate({
         title: this.form.title,
+        title_en: this.form.title_en,
         type: this.form.type,
         content: this.form.content,
         id: this.$route.query.id
