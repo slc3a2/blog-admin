@@ -6,9 +6,17 @@
         border
         style="width: 100%">
         <el-table-column
+          prop="visible"
+          label="Visable"
+          width="100">
+          <template slot-scope='scope'>
+            {{scope.row.visible}}
+          </template>
+        </el-table-column>
+        <el-table-column
           prop="title"
           label="Title"
-          width="300">
+          width="180">
         </el-table-column>
         <el-table-column
           prop="title_en"

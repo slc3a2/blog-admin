@@ -104,6 +104,7 @@ export default {
         id:this.$route.query.id
       }).then((res)=>{
         this.form = res.data;
+        this.form.visible = res.data.visible === 1 ? true : false
       })
     },
     updateHandle(){
