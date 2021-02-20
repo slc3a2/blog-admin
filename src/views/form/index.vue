@@ -26,6 +26,13 @@
           </el-option>
         </el-select>
       </el-form-item>
+      <el-form-item label="Visible">
+        <el-switch
+          v-model="form.visible"
+          active-color="#13ce66"
+          inactive-color="#ff4949">
+        </el-switch>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">Save</el-button>
       </el-form-item>
@@ -55,7 +62,8 @@ export default {
         title: '',
         title_en: '',
         content: '',
-        type: []
+        type: [],
+        visible: true
       }
     }
   },
@@ -73,7 +81,10 @@ export default {
       }
     },
     createHandle(){
-      apiCreate(this.form).then((res)=>{
+      apiCreate({
+        ...this.form,
+        visible: this.form.visible ? 1 : 0
+        }).then((res)=>{
         this.$message({
           message: '操作成功',
           type: 'success'
@@ -97,10 +108,8 @@ export default {
     },
     updateHandle(){
       apiUpdate({
-        title: this.form.title,
-        title_en: this.form.title_en,
-        type: this.form.type,
-        content: this.form.content,
+        ...this.form,
+        visible: this.form.visible ? 1 : 0,
         id: this.$route.query.id
       }).then((res)=> {
         this.$message({
