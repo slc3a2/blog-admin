@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">欢迎访问</div>
+    <div class="dashboard-text">你好哇，{{account}}</div>
   </div>
 </template>
 
@@ -9,6 +9,11 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'Dashboard',
+  data: function() {
+    return {
+      account: localStorage.getItem('account') || 'unknown'
+    }
+  },
   computed: {
     ...mapGetters([
       'name'

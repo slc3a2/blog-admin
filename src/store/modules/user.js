@@ -37,6 +37,7 @@ const actions = {
         let token = 'admin-token'
         commit('SET_TOKEN', token)
         setToken(token)
+        localStorage.setItem('account', data.account)
         resolve()
       }).catch(error => {
         reject(error)

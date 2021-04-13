@@ -90,7 +90,7 @@ export default {
           type: 'success'
         })
         this.$router.push({
-          path:'/list/index'
+          path:'/list/article'
         })
       }).catch((e)=>{
         this.$message({

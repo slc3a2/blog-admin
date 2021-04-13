@@ -68,8 +68,6 @@ export default {
   },
   created(){
     this.getData();
-    console.log(dayjs)
-    console.log(dayjs().format())
   },
   methods: {
     onSubmit() {
