@@ -57,6 +57,7 @@
         </el-table-column>
         <el-table-column
           prop="ref"
+          width='120'
           label="Ref">
         </el-table-column>
         <el-table-column
