@@ -81,7 +81,7 @@ export default {
     },
     editHandle(id){
       this.$router.push({
-        path:'/form/index',
+        path:'/form/article',
         query:{
           id
         }
